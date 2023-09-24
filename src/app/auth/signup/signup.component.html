@@ -4,13 +4,16 @@
         <label>Username</label>
         <input formControlName="username" type="text" />
     </div>
+    {{authForm.get('username')?.errors|json}}
     <div class="field">
         <label>Password</label>
         <input formControlName="password" type="text" />
     </div>
+    {{authForm.get('password')?.errors|json}}
     <div class="field">
         <label>Password Confirmation</label>
         <input formControlName="passwordConfirmation" type="text" />
     </div>
+    {{authForm.get('passwordConfirmation')?.errors|json}}
     <button class="ui button submit primary">Submit</button>
 </form>
