@@ -10,7 +10,7 @@ export class AuthService {
 
 
   usernameAvailable(username: string) {
-    return this.http.post<{available:boolean}>('https://api.angular-email.com/auth/username', {
+    return this.http.post<{ available: boolean }>('https://api.angular-email.com/auth/username', {
       username: username
     })
   }

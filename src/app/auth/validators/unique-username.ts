@@ -12,7 +12,7 @@ export class UniqueUsername implements AsyncValidator {
 
     validate = (control: AbstractControl): any => {
         const { value } = control
-      return  this.authService.usernameAvailable(value).pipe(
+        return this.authService.usernameAvailable(value).pipe(
             map(response => {
                 if (response.available) {
                     return null
