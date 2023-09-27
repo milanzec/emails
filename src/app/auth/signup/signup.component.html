@@ -4,18 +4,10 @@
         <label>Username</label>
         <input formControlName="username" type="text" />
     </div> -->
-    <app-input label="Username" [control]="$any(authForm).get('username')"></app-input>
-    {{authForm.get('username')?.errors|json}}
-    <div class="field">
-        <label>Password</label>
-        <input formControlName="password" type="text" />
-    </div>
-    {{authForm.get('password')?.errors|json}}
-    <div class="field">
-        <label>Password Confirmation</label>
-        <input formControlName="passwordConfirmation" type="text" />
-    </div>
-    {{authForm.get('passwordConfirmation')?.errors|json}}
+    <app-input inputType="text" label="Username" [control]="$any(authForm).get('username')"></app-input>
+    <app-input inputType="password" label="Password" [control]="$any(authForm).get('password')"></app-input>
+    <app-input inputType="password" label="Password Confirmation" [control]="$any(authForm).get('passwordConfirmation')"></app-input>
+
     <button class="ui button submit primary">Submit</button>
     {{authForm.errors | json }}
 </form>
