@@ -52,6 +52,8 @@ export class SignupComponent {
         error: (err) => {
           if (err.status === 0) {
             this.authForm.setErrors({ noConnection: true })
+          } else {
+            this.authForm.setErrors({ unknownError: true })
           }
         },
       })
