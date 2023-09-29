@@ -44,4 +44,14 @@ export class AuthService {
         })
       )
   }
+
+
+  checkIfSignedIn() {
+    return this.http.get(this.url + '/auth/signedin')
+      .pipe(
+        tap((response) => {
+          console.log(response)
+        })
+      )
+  }
 }
