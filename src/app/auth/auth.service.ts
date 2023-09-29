@@ -37,7 +37,9 @@ export class AuthService {
   }
 
   signup(credentials: SignUpCredentials) {
-    return this.http.post<SignUpResponse>(this.url + '/auth/signup', credentials)
+    return this.http.post<SignUpResponse>(this.url + '/auth/signup', credentials, {
+      withCredentials: true
+    })
       .pipe(
         tap(() => {
           this.signedIn$.next(true)
@@ -47,7 +49,9 @@ export class AuthService {
 
 
   checkIfSignedIn() {
-    return this.http.get(this.url + '/auth/signedin')
+    return this.http.get(this.url + '/auth/signedin',{
+      withCredentials:true
+    })
       .pipe(
         tap((response) => {
           console.log(response)
