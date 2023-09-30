@@ -18,7 +18,7 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule, AppRoutingModule, AuthModule, HttpClientModule
   ],
   providers: [{
-    provide:HTTP_INTERCEPTORS,useClass:AuthHttpInterceptors,multi:true
+    provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptors, multi: true
   }],
   bootstrap: [AppComponent]
 })

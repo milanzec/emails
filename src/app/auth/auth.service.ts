@@ -18,6 +18,11 @@ interface SignUpResponse {
   username: string
 }
 
+interface SignedInResponse {
+  authenticated: boolean,
+  username: string
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -47,11 +52,18 @@ export class AuthService {
 
 
   checkIfSignedIn() {
-    return this.http.get(this.url + '/auth/signedin')
+    return this.http.get<SignedInResponse>(this.url + '/auth/signedin')
       .pipe(
-        tap((response) => {
-          console.log(response)
+        tap(({ authenticated }) => {
+          this.signedIn$.next(authenticated)
         })
+      )
+  }
+
+  signOut() {
+    return this.http.post(this.url + '/auth/signout', {})
+      .pipe(
+        tap(() => this.signedIn$.next(false))
       )
   }
 }

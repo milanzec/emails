@@ -9,22 +9,21 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AppComponent {
 
-  //signedIn = false
-  signedIn$: BehaviorSubject<any>
+  signedIn$: BehaviorSubject<boolean>
 
   constructor(private authService: AuthService) {
     this.signedIn$ = this.authService.signedIn$
   }
 
   ngOnInit() {
-    this.authService.checkIfSignedIn().subscribe(()=>{})
+    console.log(this.signedIn$)
+    this.authService.checkIfSignedIn().subscribe(() => { })
+
+   /*  setTimeout(() => {
+      this.authService.signOut().subscribe(() => { })
+    }, 5000); */
   }
 
-  /*  ngOnInit() {
- 
-     this.authService.signedIn$.subscribe((signedIn) => {
-       this.signedIn = signedIn
-     })
-   } */
+
 
 }
