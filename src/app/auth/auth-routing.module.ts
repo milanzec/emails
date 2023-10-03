@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'signout', component: SignoutComponent },
   { path: 'signup', component: SignupComponent },
   { path: '', component: SigninComponent }
- 
+
 
 ];
 
